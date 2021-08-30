@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check list Sinergia</title>
+    <script src="https://unpkg.com/feather-icons"></script> 
+    <style>
+
+
+         body {
+       
+        display: grid;
+        grid-template-rows: repeat (12, 1fr);
+        grid-template-columns: repeat(12, 1fr);
+        background-color:white;
+        height: 1000px;
+        gap: 20px;
+       }
+header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-row: span 1;
+    grid-column: span 12;
+    background-color: white;
+    gap: 20px;
+   
+}
+aside {
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-row: 4 span 2;
+    grid-column: span 12;
+    display: flex;
+    border-style: solid;
+    
+    border-radius: 15px;
+    flex-direction: row;
+    gap: 100px;
+    background-color: rgb(209, 208, 208);
+
+}
+main{
+    display: grid;
+    grid-column: span 12;
+    grid-row-end:auto;
+    
+}
+
+
+#table{
+    border-style: groove;
+    border-radius: 15px;
+    border-color: black;
+    width: 100%;
+    height: 100%;
+
+    text-align: center;
+    background-color: white;
+   
+
+}
+
+
+
+footer{
+    grid-row: span 2;
+    grid-column: span 12;
+    background-color: white;
+    gap: 20px;
+
+        }
+.titulo{
+   color: black;
+    background-color:white;
+}
+.verdeoscuro{
+   color:white;
+    background-color: #234b40;
+    border-radius: 15px;
+}
+.verdeclaro{
+   color:white;
+    background-color: #1c977f;
+    border-radius: 15px;
+    
+}
+button {
+    
+    margin-right: 40PX;
+    padding: 15px 32px;
+    color: white;
+    background-color: #1c977f;
+    border-radius: 15px;
+    transition: background-color;
+        }
+
+button:hover{
+background-color: #234b40;
+
+}
+
+select{
+
+    border-radius: 15px;
+}
+
+input{
+
+border-radius: 15px;
+}
+
+progress {
+  -webkit-appearance: none;
+  border-radius: 15px;
+}
+
+::-webkit-progress-bar {
+   background-color: orange;
+   border-radius: 15px;
+}
+
+/* Style The Dropdown Button */
+.dropbtn {
+
+  background-color: #1c977f;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    
+    border-color: none;
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 100px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  border-radius: 15px;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+    border-radius: 15px;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+  border-radius: 15px;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+  background-color: #234b40;
+}
+    </style>
+</head>
+<body>
+
+    <header>
+
+      
+        <button ><i data-feather="minus"></i> </button>
+        
+        <button> <i data-feather="save"></i></button>
+
+        <button><i data-feather="plus"></i></button>
+        
+        <label for="file">Avance del mes:</label>
+
+<progress id="file" max="100" value="70"> 70% </progress>
+    </header>
+    <aside>
+
+        <div class="dropdown">
+            <button class="dropbtn">Responsable</button>
+            <div class="dropdown-content">
+              <a href="#">Noe</a>
+              <a href="#">Juan</a>
+              <a href="#">helen</a>
+              <a href="#">Todos</a>
+            </div>
+          </div>
+        
+       
+          <div class="dropdown">
+            <button class="dropbtn">Estado</button>
+            <div class="dropdown-content">
+              <a href="#">Pendiente</a>
+              <a href="#">Finalizado</a>
+              <a href="#">Todos</a>
+            </div>
+          </div>
+
+         
+          <div class="dropdown">
+            <button class="dropbtn">Mes</button>
+            <div class="dropdown-content">
+              <a href="#">Enero</a>
+              <a href="#">Febrero</a>
+              <a href="#">Marzo</a>
+              <a href="#">Abril</a>
+              <a href="#">Mayo</a>
+              <a href="#">Junio</a>
+              <a href="#">Julio</a>
+              <a href="#">agosto</a>
+              <a href="#">Setiembre</a>
+              <a href="#">Octubre</a>
+              <a href="#">Noviembre</a>
+              <a href="#">Diciembre</a>
+            </div>
+          </div>
+
+          <div class="dropdown">
+            <button class="dropbtn">Empresa</button>
+            <div class="dropdown-content">
+              <a href="#">Sinergia</a>
+              <a href="#">Naruna</a>
+              <a href="#">Tonosol</a>
+            </div>
+          </div>
+            
+           
+            </aside>
+       <main>
+        <table  id="table">
+            <tr>
+                
+                <th class="titulo" thead>TAREAS</th>
+                <th class="titulo" thead>Sub-tarea</th>
+                <th class="titulo" thead>Estado</th>
+                <th class="titulo" thead>Responsable</th>
+                <th class="titulo" thead>Comentario</th>
+            </tr>
+            <tr>
+                <td class="verdeoscuro" rowspan="4">Conciliacion</td>
+                <td class="verdeoscuro">Itau 671</td>
+                <td class="verdeoscuro"><input type="checkbox"></td>
+                
+                <td class="verdeoscuro">
+                    <select>
+                    <option >Noe</option> 
+                    <option >Juan</option> 
+                    <option >Helen</option> 
+                    </select>   
+                </td>
+                <td class="verdeoscuro"><input type= “text”></td>
+            </tr>
+            <tr>
+                <td class="verdeoscuro">Itau 663</td>
+                <td class="verdeoscuro"><input type="checkbox"></td>
+               
+                <td class="verdeoscuro">
+                    <select>
+                    <option >Noe</option> 
+                    <option >Juan</option> 
+                    <option >Helen</option> 
+                    </select>
+                </td>
+                <td class="verdeoscuro"><input type= “text”></td>
+            </tr>
+            <tr>
+                <td class="verdeoscuro">Itau 245</td>
+                <td class="verdeoscuro"><input type="checkbox"></td>
+               
+                <td class="verdeoscuro">
+                    <select>
+                    <option >Noe</option> 
+                    <option >Juan</option> 
+                    <option >Helen</option> 
+                    </select>
+                </td>
+                <td class="verdeoscuro"><input type= “text”></td>
+            </tr>
+            <tr>
+                <td class="verdeoscuro">Itau 229</td>
+                <td class="verdeoscuro"><input type="checkbox"></td>
+               
+                <td class="verdeoscuro">
+                    <select>
+                    <option >Noe</option> 
+                    <option >Juan</option> 
+                    <option >Helen</option> 
+                    </select>
+                </td>
+                <td class="verdeoscuro"><input type= “text”></td>
+            </tr>
+            <tr>
+                <td class="verdeclaro" rowspan="3">Sueldo</td>
+                <td class="verdeclaro" >Reclamar al Estudio</td>
+                <td class="verdeclaro" ><input type="checkbox"></td>
+                
+                <td class="verdeclaro">
+                    <select>
+                    <option >Noe</option> 
+                    <option >Juan</option> 
+                    <option >Helen</option> 
+                    </select>   
+                </td>
+                <td class="verdeclaro" ><input type= “text”></td>
+            </tr>
+            <tr>
+                <td class="verdeclaro" >Contabilizado</td>
+                <td class="verdeclaro" ><input type="checkbox"></td>
+               
+                <td class="verdeclaro" >
+                    <select>
+                    <option >Noe</option> 
+                    <option >Juan</option> 
+                    <option >Helen</option> 
+                    </select>
+                </td>
+                <td class="verdeclaro" ><input type= “text”></td>
+            </tr>
+            <tr>
+                <td class="verdeclaro" >Chequeo Suficiencia</td>
+                <td class="verdeclaro" ><input type="checkbox"></td>
+               
+                <td class="verdeclaro">
+                    <select>
+                    <option >Noe</option> 
+                    <option >Juan</option> 
+                    <option >Helen</option> 
+                    </select>
+                </td>
+                <td class="verdeclaro" ><input type= “text”></td>
+            </tr>
+            <tr>
+                <td class="verdeoscuro" rowspan="2">Honorarios</td>
+                <td class="verdeoscuro">Reclamar</td>
+                <td class="verdeoscuro"><input type="checkbox"></td>
+                
+                <td class="verdeoscuro">
+                    <select>
+                    <option >Noe</option> 
+                    <option >Juan</option> 
+                    <option >Helen</option> 
+                    </select>   
+                </td>
+                <td class="verdeoscuro"><input type= “text”></td>
+            </tr>
+            <tr>
+                <td class="verdeoscuro">Contabilizado</td>
+                <td class="verdeoscuro"><input type="checkbox"></td>
+               
+                <td class="verdeoscuro">
+                    <select>
+                    <option >Noe</option> 
+                    <option >Juan</option> 
+                    <option >Helen</option> 
+                    </select>
+                </td>
+                <td class="verdeoscuro"><input type= “text”></td>
+            </tr>
+           
+        </tr> 
+        <tr>
+            <td class="verdeclaro" rowspan="3">Seguros</td>
+            <td class="verdeclaro" >Reclamar al Brignoni</td>
+            <td class="verdeclaro" ><input type="checkbox"></td>
+            
+            <td class="verdeclaro">
+                <select>
+                <option >Noe</option> 
+                <option >Juan</option> 
+                <option >Helen</option> 
+                </select>   
+            </td>
+            <td class="verdeclaro" ><input type= “text”></td>
+        </tr>
+        <tr>
+            <td class="verdeclaro" >Verificacion Sura</td>
+            <td class="verdeclaro" ><input type="checkbox"></td>
+           
+            <td class="verdeclaro" >
+                <select>
+                <option >Noe</option> 
+                <option >Juan</option> 
+                <option >Helen</option> 
+                </select>
+            </td>
+            <td class="verdeclaro" ><input type= “text”></td>
+        </tr>
+        <tr>
+            <td class="verdeclaro" >Verificacion BSE</td>
+            <td class="verdeclaro" ><input type="checkbox"></td>
+           
+            <td class="verdeclaro">
+                <select>
+                <option >Noe</option> 
+                <option >Juan</option> 
+                <option >Helen</option> 
+                </select>
+            </td>
+            <td class="verdeclaro" ><input type= “text”></td>
+        </tr>
+        <tr>
+            <td class="verdeoscuro" rowspan="7">Alquileres</td>
+            <td class="verdeoscuro">STPC</td>
+            <td class="verdeoscuro"><input type="checkbox"></td>
+            
+            <td class="verdeoscuro">
+                <select>
+                <option >Noe</option> 
+                <option >Juan</option> 
+                <option >Helen</option> 
+                </select>   
+            </td>
+            <td class="verdeoscuro"><input type= “text”></td>
+        </tr>
+        <tr>
+            <td class="verdeoscuro">WTC</td>
+            <td class="verdeoscuro"><input type="checkbox"></td>
+           
+            <td class="verdeoscuro">
+                <select>
+                <option >Noe</option> 
+                <option >Juan</option> 
+                <option >Helen</option> 
+                </select>
+            </td>
+            <td class="verdeoscuro"><input type= “text”></td>
+        </tr>
+        <tr>
+            <td class="verdeoscuro">Golf</td>
+            <td class="verdeoscuro"><input type="checkbox"></td>
+           
+            <td class="verdeoscuro">
+                <select>
+                <option >Noe</option> 
+                <option >Juan</option> 
+                <option >Helen</option> 
+                </select>
+            </td>
+            <td class="verdeoscuro"><input type= “text”></td>
+        </tr>
+        <tr>
+            <td class="verdeoscuro">Ejido</td>
+            <td class="verdeoscuro"><input type="checkbox"></td>
+           
+            <td class="verdeoscuro">
+                <select>
+                <option >Noe</option> 
+                <option >Juan</option> 
+                <option >Helen</option> 
+                </select>
+            </td>
+            <td class="verdeoscuro"><input type= “text”></td>
+        </tr>
+        <tr>
+            <td class="verdeoscuro">Soriano</td>
+            <td class="verdeoscuro"><input type="checkbox"></td>
+           
+            <td class="verdeoscuro">
+                <select>
+                <option >Noe</option> 
+                <option >Juan</option> 
+                <option >Helen</option> 
+                </select>
+            </td>
+            <td class="verdeoscuro"><input type= “text”></td>
+        </tr>
+        <tr>
+            <td class="verdeoscuro">Torres</td>
+            <td class="verdeoscuro"><input type="checkbox"></td>
+           
+            <td class="verdeoscuro">
+                <select>
+                <option >Noe</option> 
+                <option >Juan</option> 
+                <option >Helen</option> 
+                </select>
+            </td>
+            <td class="verdeoscuro"><input type= “text”></td>
+        </tr>
+        <tr>
+            <td class="verdeoscuro">Design</td>
+            <td class="verdeoscuro"><input type="checkbox"></td>
+           
+            <td class="verdeoscuro">
+                <select>
+                <option >Noe</option> 
+                <option >Juan</option> 
+                <option >Helen</option> 
+                </select>
+            </td>
+            <td class="verdeoscuro"><input type= “text”></td>
+        </tr>
+        <tr>
+            <td class="verdeclaro" rowspan="3">Estatal</td>
+            <td class="verdeclaro" >UTE</td>
+            <td class="verdeclaro" ><input type="checkbox"></td>
+            
+            <td class="verdeclaro">
+                <select>
+                <option >Noe</option> 
+                <option >Juan</option> 
+                <option >Helen</option> 
+                </select>   
+            </td>
+            <td class="verdeclaro" ><input type= “text”></td>
+        </tr>
+        <tr>
+            <td class="verdeclaro" >OSE</td>
+            <td class="verdeclaro" ><input type="checkbox"></td>
+           
+            <td class="verdeclaro" >
+                <select>
+                <option >Noe</option> 
+                <option >Juan</option> 
+                <option >Helen</option> 
+                </select>
+            </td>
+            <td class="verdeclaro" ><input type= “text”></td>
+        </tr>
+        <tr>
+            <td class="verdeclaro" >ANTEL</td>
+            <td class="verdeclaro" ><input type="checkbox"></td>
+           
+            <td class="verdeclaro">
+                <select>
+                <option >Noe</option> 
+                <option >Juan</option> 
+                <option >Helen</option> 
+                </select>
+            </td>
+            <td class="verdeclaro" ><input type= “text”></td>
+        </tr>
+        </table>
+    </main>
+<footer> &copy; Neck</footer>
+<script>
+    feather.replace()
+  </script> 
+
+<form name="buscar">
+    <select name="lista" size="1">
+    <option value="coleccion.html">Mi colección de fotos</option>
+    <option value="http://alirburia.8m.com">Halloween.com</option>
+    <option value="http://www.halloween.com">Alirburia</option>
+    <option value="http://www.museoceramadrid.com">Museo de cera de Madrid</option>
+    </select>
+    <input type="button" value="Vamos" onClick="busqueda()">
+    </form>
+</body>
+</html>
