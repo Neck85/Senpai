@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check list Mensual</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+<style>
+      body {
+       
+       display: grid;
+       grid-template-rows: repeat (12, 1fr);
+       grid-template-columns: repeat (12, 1fr);
+       background-color:white;
+       height: 1000px;
+       gap: 20px;
+      }
+
+header{
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    grid-row: span 1;
+    grid-column: span 12;
+    background-color: #6BAF92;
+    gap: 20px;
+}
+
+
+    main{
+    display: grid;
+    grid-row: span 7;
+    grid-column: span 12;
+    grid-row-end:auto;
+    
+}
+footer{
+  display: grid;
+    grid-row: span 2;
+    grid-column: span 12;
+    background-color: black;
+    gap: 20px;
+      }
+
+
+th{
+  border:solid;
+  border-color: rgb(4, 66, 4);
+  color: rgb(36, 139, 36);
+  border-radius: 15px;
+}
+
+td{
+  text-align: center;
+  align-items: center;
+  border:solid;
+  color: black;
+}
+
+#Descripcion, #Tarea{
+
+border-radius: 15px;
+
+}
+
+#boton{
+
+    background-color: #207569; /* Green */
+    border-color: none;
+    border-radius: 15px;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+
+}
+#boton:hover{
+
+  background-color: white; 
+    color: #207569; 
+    border: 2px solid #4CAF50;
+
+}
+
+#myInput{
+  width: 500px;
+  border-radius: 15px;
+}
+
+section{
+
+  text-align: center;
+  
+
+}
+
+</style>
+   
+  </head>
+<body>
+
+  <header>
+    <section>
+      <h1>Agregar Tarea</h6>
+  <div class="container">
+    <form>
+     <div>
+      <p>
+        <input id="Tarea" style="width: 500px;"  type="text" placeholder="Ingrese Tarea"><br>
+      </p>
+      <p>
+        <input id="Descripcion" style="width: 500px;"  type="text" placeholder="Breve descripcion"><br>
+      </p>
+      <p>
+      
+    </div>
+
+  </form>
+  
+
+  <button id="boton" onclick="add();limpiaCampo()">
+    
+  Agregar Tarea
+  </button>
+
+</section>
+<canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+</header>
+<aside>
+  <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Buscar Tarea..">
+
+</aside>
+<main>
+  <table  id="table">
+    <thead>
+      <tr>
+         <th style="width: 200px;"> Tarea</th>
+         <th style="width: 60px;"> Estado </th>
+         <th style="width: 400px;"> Descripcion </th>
+         <th style="width: 100px;">Responsable</th>
+         <th style="width: 60px;"> Eliminar </th>
+         
+      </tr>
+    </thead>
+    <tbody id="tbd">
+
+    </tbody>
+  </table>
+
+  <script >
+		
+		function add(){
+      let campovacio = "";
+      let Tareaingresada = document.getElementById("Tarea").value
+      let DescripcionIngresada = document.getElementById("Descripcion").value
+      if(Tareaingresada!="" & DescripcionIngresada!="")
+      document.getElementById("table").insertRow(-1).innerHTML = 
+      '<td>' + Tareaingresada + '</td><td><input id="check" type="checkbox"></td><td>' + DescripcionIngresada + '</td><td><select><option >Noe</option> <option >Juan</option> <option >Helen</option> </select></td><td><button onclick="deleteRow(this);">Eliminar</button></td>';
+      else{
+        alert("Debe ingresar una Tarea y/o Descripcion")
+      }
+    }
+
+function deleteRow(r) {
+ 
+  var i = r.parentNode.parentNode.rowIndex;
+  document.getElementById("table").deleteRow(i);  
+}
+function limpiaCampo() {
+  
+  Tarea.value = "";
+  Descripcion.value = "";
+}
+
+
+function myFunction() {
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("table");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+
+function Grafico(){
+let ValorFinalizado = 0;
+let ValorNOFinalizado = 0;
+
+if (checkBox.checked == true){
+    ValorFinalizado = ValorFinalizado++;
+  } else {
+   ValorNOFinalizado = ValorNOFinalizado++;
+  }
+}
+console.log(Grafico)
+let xValues = ["Finalizado", "Pendiente"];
+let yValues = [];
+yValues[0] = ValorFinalizado;
+yValues[1] = ValorNOFinalizado;
+let barColors = [
+  "#b91d47",
+  "#00aba9",
+];
+
+new Chart("myChart", {
+  type: "pie",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues
+    }]
+  },
+  options: {
+    title: {
+      display: true,
+      text: "Avance del mes"
+    }
+  }
+});
+
+
+		
+	</script>
+</main>
+<footer>
+
+</footer>
+</body>
+
+</html>
